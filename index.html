@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northlight Creative · Photo & Film · Vancouver, BC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --off-white:#F8F7F4;
+  --charcoal:#1A1A18;
+  --stone:#C8C0B4;
+  --rose:#C4917A;
+  --mid:#6B6860;
+}
+body{background:var(--off-white);color:var(--charcoal);font-family:'Inter',sans-serif;font-weight:300}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:2rem 3rem;position:sticky;top:0;background:var(--off-white);z-index:100;border-bottom:0.5px solid var(--stone)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--charcoal)}
+.logo span{color:var(--rose)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--charcoal)}
+
+.hero{position:relative;height:88vh;overflow:hidden;display:flex;align-items:flex-end;padding:3rem}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#2a2420 0%,#1a1614 40%,#3d2e26 100%)}
+.hero-img-grid{position:absolute;inset:0;display:grid;grid-template-columns:1.4fr 0.6fr;grid-template-rows:1fr 1fr;gap:3px}
+.hero-block{overflow:hidden}
+.hero-block:nth-child(1){background:#3a2d28}
+.hero-block:nth-child(2){background:#1e2830;grid-row:1/3}
+.hero-block:nth-child(3){background:#2d2420}
+.hero-content{position:relative;z-index:2;width:100%}
+.hero-eyebrow{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--stone);margin-bottom:1rem}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,8vw,6.5rem);font-weight:300;line-height:0.9;color:#F8F7F4;letter-spacing:-0.01em}
+.hero-title em{font-style:italic;color:var(--rose)}
+.hero-sub{margin-top:1.5rem;display:flex;align-items:center;gap:2rem}
+.hero-sub p{font-size:0.72rem;letter-spacing:0.1em;color:var(--stone)}
+.hero-cta{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:#F8F7F4;text-decoration:none;border-bottom:0.5px solid var(--rose);padding-bottom:2px}
+
+.ticker-wrap{overflow:hidden;border-top:0.5px solid var(--stone);border-bottom:0.5px solid var(--stone);padding:0.9rem 0;background:var(--off-white)}
+.ticker-track{display:flex;animation:ticker 18s linear infinite;width:max-content}
+.ticker-track span{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid);padding:0 2.5rem}
+.ticker-track span.dot{color:var(--rose);padding:0 0.5rem}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.section{padding:4rem 3rem}
+.section-label{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);margin-bottom:2.5rem}
+
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:120px;gap:4px}
+.g1{grid-column:1/6;grid-row:1/4;background:#2a2d30}
+.g2{grid-column:6/9;grid-row:1/3;background:#3d2e28}
+.g3{grid-column:9/13;grid-row:1/2;background:#282d2a}
+.g4{grid-column:9/11;grid-row:2/4;background:#30282a}
+.g5{grid-column:11/13;grid-row:2/3;background:#1e2830}
+.g6{grid-column:6/9;grid-row:3/5;background:#2d3028}
+.g7{grid-column:11/13;grid-row:3/5;background:#2e2820}
+.g8{grid-column:1/4;grid-row:4/6;background:#1e2420}
+.g9{grid-column:4/6;grid-row:4/5;background:#30282e}
+.g10{grid-column:9/11;grid-row:4/6;background:#282a30}
+.g11{grid-column:4/6;grid-row:5/6;background:#28302a}
+.g-item{position:relative;overflow:hidden;cursor:pointer}
+.g-item:after{content:'';position:absolute;inset:0;background:rgba(248,247,244,0);transition:background 0.3s}
+.g-item:hover:after{background:rgba(248,247,244,0.07)}
+.g-label{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;transform:translateY(100%);transition:transform 0.3s;z-index:1}
+.g-item:hover .g-label{transform:translateY(0)}
+.g-label span{font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:#F8F7F4}
+.g-category{font-size:0.55rem;letter-spacing:0.1em;color:var(--stone);display:block;margin-top:2px}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text h2{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;line-height:1.1;margin-bottom:1.5rem}
+.about-text h2 em{font-style:italic;color:var(--rose)}
+.about-text p{font-size:0.82rem;line-height:1.8;color:var(--mid);max-width:36ch}
+.about-stats{display:grid;gap:2rem;padding-top:1rem}
+.stat-item{border-top:0.5px solid var(--stone);padding-top:1.2rem}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--charcoal)}
+.stat-label{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);margin-top:0.25rem}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.service-item{padding:2rem;border:0.5px solid var(--stone)}
+.service-item:nth-child(n+4){border-top:none}
+.service-item:nth-child(3n+2){border-left:none;border-right:none}
+.service-num{font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:var(--stone);margin-bottom:1.2rem}
+.service-name{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.75rem;color:var(--charcoal)}
+.service-desc{font-size:0.73rem;line-height:1.75;color:var(--mid)}
+
+.contact-section{background:var(--charcoal);padding:5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.contact-title{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:#F8F7F4;line-height:1.05}
+.contact-title em{font-style:italic;color:var(--rose)}
+.contact-info{display:flex;flex-direction:column;gap:2rem}
+.contact-line{display:flex;flex-direction:column;gap:0.3rem}
+.contact-lbl{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone)}
+.contact-val{font-size:0.85rem;color:#F8F7F4}
+.contact-val a{color:#F8F7F4;text-decoration:none;border-bottom:0.5px solid var(--rose)}
+.contact-btn{display:inline-block;margin-top:1rem;padding:0.85rem 2rem;border:0.5px solid var(--rose);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);cursor:pointer;background:transparent;transition:all 0.2s;font-family:'Inter',sans-serif}
+.contact-btn:hover{background:var(--rose);color:#F8F7F4}
+
+footer{padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--stone)}
+footer p{font-size:0.65rem;letter-spacing:0.1em;color:var(--mid)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Northlight<span> Creative</span></div>
+  <ul class="nav-links">
+    <li><a href="#work">work</a></li>
+    <li><a href="#about">about</a></li>
+    <li><a href="#services">services</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-img-grid">
+    <div class="hero-block"></div>
+    <div class="hero-block"></div>
+    <div class="hero-block"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Photo &amp; Film · Vancouver, BC</p>
+    <h1 class="hero-title">light &amp;<br><em>vision</em></h1>
+    <div class="hero-sub">
+      <p>Weddings · Fashion · Luxury Brand</p>
+      <a href="#work" class="hero-cta">View Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>Wedding Photography</span><span class="dot">·</span>
+    <span>Fashion Editorial</span><span class="dot">·</span>
+    <span>Luxury Brand Film</span><span class="dot">·</span>
+    <span>Event Coverage</span><span class="dot">·</span>
+    <span>Campaign Stills</span><span class="dot">·</span>
+    <span>Cinematic Video</span><span class="dot">·</span>
+    <span>Wedding Photography</span><span class="dot">·</span>
+    <span>Fashion Editorial</span><span class="dot">·</span>
+    <span>Luxury Brand Film</span><span class="dot">·</span>
+    <span>Event Coverage</span><span class="dot">·</span>
+    <span>Campaign Stills</span><span class="dot">·</span>
+    <span>Cinematic Video</span><span class="dot">·</span>
+  </div>
+</div>
+
+<section class="section" id="work">
+  <p class="section-label">Selected Work</p>
+  <div class="gallery">
+    <div class="g-item g1"><div class="g-label"><span>Hana &amp; Theo</span><span class="g-category">Wedding · Tuscany</span></div></div>
+    <div class="g-item g2"><div class="g-label"><span>Velour SS25</span><span class="g-category">Fashion Editorial</span></div></div>
+    <div class="g-item g3"><div class="g-label"><span>Maison Édith</span><span class="g-category">Brand Film</span></div></div>
+    <div class="g-item g4"><div class="g-label"><span>Clara &amp; James</span><span class="g-category">Wedding · Provence</span></div></div>
+    <div class="g-item g5"><div class="g-label"><span>Atelier No. 7</span><span class="g-category">Campaign Stills</span></div></div>
+    <div class="g-item g6"><div class="g-label"><span>Noir Collection</span><span class="g-category">Lookbook</span></div></div>
+    <div class="g-item g7"><div class="g-label"><span>Sage &amp; Linen</span><span class="g-category">Brand Identity</span></div></div>
+    <div class="g-item g8"><div class="g-label"><span>The Rosewood</span><span class="g-category">Hotel Campaign</span></div></div>
+    <div class="g-item g9"><div class="g-label"><span>Éclat Gala</span><span class="g-category">Event Coverage</span></div></div>
+    <div class="g-item g10"><div class="g-label"><span>Mila Bridal</span><span class="g-category">Campaign Film</span></div></div>
+    <div class="g-item g11"><div class="g-label"><span>Sofía &amp; Ren</span><span class="g-category">Wedding · Kyoto</span></div></div>
+  </div>
+</section>
+
+<section class="section" id="about" style="background:#F2F0EC">
+  <p class="section-label">The Studio</p>
+  <div class="about">
+    <div class="about-text">
+      <h2>Images made with<br>intention &amp; <em>care</em></h2>
+      <p style="margin-bottom:1.25rem">Northlight Creative is a boutique photo and film studio working with couples, fashion houses, and luxury brands who care about the details — and understand that great images take time to make.</p>
+      <p>Based in Vancouver, BC. Available worldwide.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-item">
+        <div class="stat-num">340+</div>
+        <div class="stat-label">Weddings documented</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">60+</div>
+        <div class="stat-label">Brand &amp; editorial campaigns</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">12</div>
+        <div class="stat-label">Countries worked in</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <p class="section-label">Services</p>
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="service-num">01</div>
+      <div class="service-name">Wedding &amp; Events</div>
+      <div class="service-desc">Full-day coverage with a second shooter, delivered as a curated gallery of 600–800 edited images plus a cinematic short film.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">02</div>
+      <div class="service-name">Fashion Editorial</div>
+      <div class="service-desc">Lookbook, campaign, and editorial stills for fashion labels and independent designers. Studio or location.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">03</div>
+      <div class="service-name">Luxury Brand Film</div>
+      <div class="service-desc">Short-form video for launches, social, and brand storytelling. Scripted or documentary-style, shot on cinema cameras.</div>
+    </div>
+    <div class="service-item" style="border-top:none">
+      <div class="service-num">04</div>
+      <div class="service-name">Campaign Stills</div>
+      <div class="service-desc">Product and lifestyle photography for seasonal campaigns, e-commerce, and print.</div>
+    </div>
+    <div class="service-item" style="border-top:none">
+      <div class="service-num">05</div>
+      <div class="service-name">Engagement Sessions</div>
+      <div class="service-desc">Intimate portrait sessions for couples, used for announcements, invitations, or simply to remember.</div>
+    </div>
+    <div class="service-item" style="border-top:none">
+      <div class="service-num">06</div>
+      <div class="service-name">Destination</div>
+      <div class="service-desc">Available worldwide for weddings, retreats, and campaigns that take us somewhere beautiful.</div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-section" id="contact">
+  <div>
+    <h2 class="contact-title">Let's make<br>something <em>beautiful</em><br>together.</h2>
+  </div>
+  <div class="contact-info">
+    <div class="contact-line">
+      <span class="contact-lbl">Email</span>
+      <span class="contact-val"><a href="mailto:northlightcreative.ca@gmail.com">northlightcreative.ca@gmail.com</a></span>
+    </div>
+    <div class="contact-line">
+      <span class="contact-lbl">Phone</span>
+      <span class="contact-val"><a href="tel:+17787065969">(778) 706-5969</a></span>
+    </div>
+    <div class="contact-line">
+      <span class="contact-lbl">Based in</span>
+      <span class="contact-val">Vancouver, BC · Available Worldwide</span>
+    </div>
+    <div class="contact-line">
+      <span class="contact-lbl">Bookings</span>
+      <span class="contact-val">Currently taking 2026 &amp; 2027 dates</span>
+    </div>
+    <a href="mailto:northlightcreative.ca@gmail.com" class="contact-btn">Get in touch</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Northlight Creative</p>
+  <p style="letter-spacing:0.08em">Vancouver, BC · Photo &amp; Film</p>
+</footer>
+
+</body>
+</html>
